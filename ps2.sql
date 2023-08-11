@@ -1,50 +1,53 @@
-create database OurExercise
-use OurExercise
+create database Assessment2
+use Assessment2
 CREATE TABLE Publisher (
     pid INT PRIMARY KEY,
-    publisher VARCHAR(255)
-);
+    publisher VARCHAR(50)
+)
+INSERT INTO Publisher  VALUES
+    (1, 'venkatesh'),
+    (2, 'sai'),
+    (3, 'teja')
 
 CREATE TABLE Author (
     Aid INT PRIMARY KEY,
-    AName VARCHAR(255)
-);
+    AName VARCHAR(50)
+)
+INSERT INTO Author  VALUES
+    (1, 'Naveen'),
+    (2, 'Anudeep'),
+    (3, 'yednesh')
 
 CREATE TABLE Category (
     Cid INT PRIMARY KEY,
-    category VARCHAR(255)
-);
+    category VARCHAR(50)
+)
+INSERT INTO Category  VALUES
+    (1, 'Java'),
+    (2, 'python'),
+    (3, 'mathematics')
 
 CREATE TABLE Book (
     Bid INT PRIMARY KEY,
     BName VARCHAR(255),
-    Bprice DECIMAL(10, 2),
+    Bprice float,
     pid INT,
     Aid INT,
     Cid INT,
     FOREIGN KEY (pid) REFERENCES Publisher(pid),
     FOREIGN KEY (Aid) REFERENCES Author(Aid),
-    FOREIGN KEY (Cid) REFERENCES Category(Cid)
-);
+    FOREIGN KEY (Cid) REFERENCES Category(Cid))
 
--- Insert records into the tables
-INSERT INTO Publisher (pid, publisher) VALUES
-    (1, 'Publisher A'),
-    (2, 'Publisher B'),
-    (3, 'Publisher C');
+INSERT INTO BOOK VALUES
+    (1, 'Advanve-Java', 19.99, 1, 1, 1),
+    (2, 'Advance-python', 12.99, 2, 2, 2),
+    (3, 'mathematics', 24.99, 3, 3, 3)
+SELECT * FROM BOOK
 
-INSERT INTO Author (Aid, AName) VALUES
-    (1, 'Author X'),
-    (2, 'Author Y'),
-    (3, 'Author Z');
 
-INSERT INTO Category (Cid, category) VALUES
-    (1, 'Fiction'),
-    (2, 'Non-Fiction'),
-    (3, 'Mystery');
 
-INSERT INTO Book (Bid, BName, Bprice, pid, Aid, Cid) VALUES
-    (1, 'Book 1', 19.99, 1, 1, 1),
-    (2, 'Book 2', 12.99, 2, 2, 2),
-    (3, 'Book 3', 24.99, 3, 3, 1);
-select*from Book
+						
+
+
+
+
